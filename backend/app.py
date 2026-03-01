@@ -19,10 +19,12 @@ else:
     print("Error: Model file not found.")
     model = None
 
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({"status": "Cardio Disease Prediction API is running!"})
+
 @app.route('/predict', methods=['POST'])
 def predict():
-    if not model:
-        return jsonify({'error': 'Model not loaded'}), 500
 
     try:
         data = request.get_json()
