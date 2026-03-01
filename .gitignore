@@ -1,0 +1,9 @@
+node_modules/
+__pycache__/
+venv/
+env/
+.env
+.ipynb_checkpoints/
+build/
+dist/
+*.pyc
