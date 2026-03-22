@@ -38,7 +38,7 @@ def train():
     weights = np.where(X_train['active'] == 0, 2.0, weights)
     weights = np.where(X_train['cholesterol'] >= 2, 3.0, weights)
     weights = np.where(X_train['smoke'] == 1, 4.0, weights)
-    weights = np.where((X_train['ap_hi'] >= 140) | (X_train['ap_lo'] >= 90), 5.0, weights)
+    weights = np.where((X_train['ap_hi'] >= 140) | (X_train['ap_lo'] >= 90), 1.5, weights)
     
     rf = RandomForestClassifier(n_estimators=150, max_depth=10, min_samples_leaf=30, max_features='sqrt', random_state=42)
     rf.fit(X_train, y_train, sample_weight=weights)
